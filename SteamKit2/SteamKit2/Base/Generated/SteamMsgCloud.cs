@@ -2174,6 +2174,16 @@ namespace SteamKit2.Internal
         public void Resetmachine_name_index() => __pbn__machine_name_index = null;
         private uint? __pbn__machine_name_index;
 
+        [global::ProtoBuf.ProtoMember(9)]
+        public bool reupload_requested
+        {
+            get => __pbn__reupload_requested.GetValueOrDefault();
+            set => __pbn__reupload_requested = value;
+        }
+        public bool ShouldSerializereupload_requested() => __pbn__reupload_requested != null;
+        public void Resetreupload_requested() => __pbn__reupload_requested = null;
+        private bool? __pbn__reupload_requested;
+
     }
 
     [global::ProtoBuf.ProtoContract()]

@@ -518,6 +518,9 @@ namespace SteamKit2.Internal
         public void Resettemplate_vars_json() => __pbn__template_vars_json = null;
         private string __pbn__template_vars_json;
 
+        [global::ProtoBuf.ProtoMember(12)]
+        public global::System.Collections.Generic.List<StoreItemID> recommended_items { get; } = new global::System.Collections.Generic.List<StoreItemID>();
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -957,6 +960,16 @@ namespace SteamKit2.Internal
         public void Resettitle() => __pbn__title = null;
         private string __pbn__title;
 
+        [global::ProtoBuf.ProtoMember(6)]
+        public uint associated_id
+        {
+            get => __pbn__associated_id.GetValueOrDefault();
+            set => __pbn__associated_id = value;
+        }
+        public bool ShouldSerializeassociated_id() => __pbn__associated_id != null;
+        public void Resetassociated_id() => __pbn__associated_id = null;
+        private uint? __pbn__associated_id;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1373,6 +1386,7 @@ namespace SteamKit2.Internal
         k_EMarketingMessageFreeWeekend = 14,
         k_EMarketingMessageSalePages = 15,
         k_EMarketingMessagePlaytestAvailable = 16,
+        k_EMarketingMessageNewGame = 17,
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1428,6 +1442,7 @@ namespace SteamKit2.Internal
         k_EMarketingMessageLookupActive = 2,
         k_EMarketingMessageLookupByTitleWithType = 3,
         k_EMarketingMessageLookupByGIDList = 4,
+        k_EMarketingMessageLookupByAssociatedID = 5,
     }
 
     public class MarketingMessages : SteamUnifiedMessages.UnifiedService

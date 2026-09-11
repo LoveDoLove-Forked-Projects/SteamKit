@@ -146,13 +146,6 @@ namespace SteamKit2
             public EGamingDeviceType GamingDeviceType { get; set; } = EGamingDeviceType.Unknown;
 
             /// <summary>
-            /// Gets or sets whether this is Steam Deck login.
-            /// </summary>
-            /// <value>The Steam Deck login value.</value>
-            [Obsolete( "Use GamingDeviceType instead" )]
-            public bool IsSteamDeck { get; set; }
-
-            /// <summary>
             /// Initializes a new instance of the <see cref="LogOnDetails"/> class.
             /// </summary>
             public LogOnDetails()
@@ -302,13 +295,6 @@ namespace SteamKit2
             {
                 logon.Body.gaming_device_type = ( uint )details.GamingDeviceType;
             }
-
-#pragma warning disable CS0618 // Type or member is obsolete
-            if ( details.IsSteamDeck )
-            {
-                logon.Body.is_steam_deck_deprecated = true;
-            }
-#pragma warning restore CS0618 // Type or member is obsolete
 
             // steam guard 
             logon.Body.auth_code = details.AuthCode;

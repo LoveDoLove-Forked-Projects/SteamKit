@@ -16196,6 +16196,16 @@ namespace SteamKit2.GC.Dota.Internal
         public void Resetfinal_rank_bucket() => __pbn__final_rank_bucket = null;
         private uint? __pbn__final_rank_bucket;
 
+        [global::ProtoBuf.ProtoMember(6)]
+        public bool update_in_progress
+        {
+            get => __pbn__update_in_progress.GetValueOrDefault();
+            set => __pbn__update_in_progress = value;
+        }
+        public bool ShouldSerializeupdate_in_progress() => __pbn__update_in_progress != null;
+        public void Resetupdate_in_progress() => __pbn__update_in_progress = null;
+        private bool? __pbn__update_in_progress;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -16215,9 +16225,6 @@ namespace SteamKit2.GC.Dota.Internal
         public bool ShouldSerializeevent_id() => __pbn__event_id != null;
         public void Resetevent_id() => __pbn__event_id = null;
         private EEvent? __pbn__event_id;
-
-        [global::ProtoBuf.ProtoMember(2)]
-        public global::System.Collections.Generic.List<uint> coupon_ids { get; } = new global::System.Collections.Generic.List<uint>();
 
     }
 

@@ -495,6 +495,16 @@ namespace SteamKit2.Internal
         public void Reseturl() => __pbn__url = null;
         private string __pbn__url;
 
+        [global::ProtoBuf.ProtoMember(17)]
+        public int language
+        {
+            get => __pbn__language.GetValueOrDefault();
+            set => __pbn__language = value;
+        }
+        public bool ShouldSerializelanguage() => __pbn__language != null;
+        public void Resetlanguage() => __pbn__language = null;
+        private int? __pbn__language;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -1875,6 +1885,16 @@ namespace SteamKit2.Internal
         public void Resetdesired_revision() => __pbn__desired_revision = null;
         private EPublishedFileRevision? __pbn__desired_revision;
 
+        [global::ProtoBuf.ProtoMember(5)]
+        public bool full_reconcile
+        {
+            get => __pbn__full_reconcile.GetValueOrDefault();
+            set => __pbn__full_reconcile = value;
+        }
+        public bool ShouldSerializefull_reconcile() => __pbn__full_reconcile != null;
+        public void Resetfull_reconcile() => __pbn__full_reconcile = null;
+        private bool? __pbn__full_reconcile;
+
         [global::ProtoBuf.ProtoContract()]
         public partial class WorkshopItem : global::ProtoBuf.IExtensible
         {
@@ -2161,6 +2181,12 @@ namespace SteamKit2.Internal
         [global::ProtoBuf.ProtoMember(34)]
         public global::System.Collections.Generic.List<TagGroup> taggroups { get; } = new global::System.Collections.Generic.List<TagGroup>();
 
+        [global::ProtoBuf.ProtoMember(39)]
+        public DateRange date_range_created { get; set; }
+
+        [global::ProtoBuf.ProtoMember(40)]
+        public DateRange date_range_updated { get; set; }
+
         [global::ProtoBuf.ProtoMember(37)]
         public global::System.Collections.Generic.List<EContentDescriptorID> excluded_content_descriptors { get; } = new global::System.Collections.Generic.List<EContentDescriptorID>();
 
@@ -2173,6 +2199,9 @@ namespace SteamKit2.Internal
         public bool ShouldSerializeadmin_query() => __pbn__admin_query != null;
         public void Resetadmin_query() => __pbn__admin_query = null;
         private bool? __pbn__admin_query;
+
+        [global::ProtoBuf.ProtoMember(41)]
+        public global::System.Collections.Generic.List<EContentDescriptorID> excluded_apps_with_content_descriptors { get; } = new global::System.Collections.Generic.List<EContentDescriptorID>();
 
         [global::ProtoBuf.ProtoMember(17)]
         public bool totalonly
@@ -2380,6 +2409,35 @@ namespace SteamKit2.Internal
 
             [global::ProtoBuf.ProtoMember(1)]
             public global::System.Collections.Generic.List<string> tags { get; } = new global::System.Collections.Generic.List<string>();
+
+        }
+
+        [global::ProtoBuf.ProtoContract()]
+        public partial class DateRange : global::ProtoBuf.IExtensible
+        {
+            private global::ProtoBuf.IExtension __pbn__extensionData;
+            global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+                => global::ProtoBuf.Extensible.GetExtensionObject(ref __pbn__extensionData, createIfMissing);
+
+            [global::ProtoBuf.ProtoMember(1)]
+            public uint timestamp_start
+            {
+                get => __pbn__timestamp_start.GetValueOrDefault();
+                set => __pbn__timestamp_start = value;
+            }
+            public bool ShouldSerializetimestamp_start() => __pbn__timestamp_start != null;
+            public void Resettimestamp_start() => __pbn__timestamp_start = null;
+            private uint? __pbn__timestamp_start;
+
+            [global::ProtoBuf.ProtoMember(2)]
+            public uint timestamp_end
+            {
+                get => __pbn__timestamp_end.GetValueOrDefault();
+                set => __pbn__timestamp_end = value;
+            }
+            public bool ShouldSerializetimestamp_end() => __pbn__timestamp_end != null;
+            public void Resettimestamp_end() => __pbn__timestamp_end = null;
+            private uint? __pbn__timestamp_end;
 
         }
 
@@ -2657,6 +2715,17 @@ namespace SteamKit2.Internal
         public void Resetspoiler_tag() => __pbn__spoiler_tag = null;
         private bool? __pbn__spoiler_tag;
 
+        [global::ProtoBuf.ProtoMember(14)]
+        [global::System.ComponentModel.DefaultValue("")]
+        public string collectiontype
+        {
+            get => __pbn__collectiontype ?? "";
+            set => __pbn__collectiontype = value;
+        }
+        public bool ShouldSerializecollectiontype() => __pbn__collectiontype != null;
+        public void Resetcollectiontype() => __pbn__collectiontype = null;
+        private string __pbn__collectiontype;
+
         [global::ProtoBuf.ProtoMember(15)]
         public uint image_width
         {
@@ -2686,6 +2755,16 @@ namespace SteamKit2.Internal
         public bool ShouldSerializelanguage() => __pbn__language != null;
         public void Resetlanguage() => __pbn__language = null;
         private int? __pbn__language;
+
+        [global::ProtoBuf.ProtoMember(18)]
+        public bool update_tags
+        {
+            get => __pbn__update_tags.GetValueOrDefault();
+            set => __pbn__update_tags = value;
+        }
+        public bool ShouldSerializeupdate_tags() => __pbn__update_tags != null;
+        public void Resetupdate_tags() => __pbn__update_tags = null;
+        private bool? __pbn__update_tags;
 
     }
 
@@ -3296,6 +3375,34 @@ namespace SteamKit2.Internal
         public bool ShouldSerializeadmin_query() => __pbn__admin_query != null;
         public void Resetadmin_query() => __pbn__admin_query = null;
         private bool? __pbn__admin_query;
+
+        [global::ProtoBuf.ProtoMember(48)]
+        [global::System.ComponentModel.DefaultValue(EQueryFilesSpecialFilter.k_EQueryFilesSpecialFilter_None)]
+        public EQueryFilesSpecialFilter special_filter
+        {
+            get => __pbn__special_filter ?? EQueryFilesSpecialFilter.k_EQueryFilesSpecialFilter_None;
+            set => __pbn__special_filter = value;
+        }
+        public bool ShouldSerializespecial_filter() => __pbn__special_filter != null;
+        public void Resetspecial_filter() => __pbn__special_filter = null;
+        private EQueryFilesSpecialFilter? __pbn__special_filter;
+
+        [global::ProtoBuf.ProtoMember(49)]
+        public global::System.Collections.Generic.List<uint> appids_required_for_use { get; } = new global::System.Collections.Generic.List<uint>();
+
+        [global::ProtoBuf.ProtoMember(51)]
+        public global::System.Collections.Generic.List<uint> excluded_appids_required_for_use { get; } = new global::System.Collections.Generic.List<uint>();
+
+        [global::ProtoBuf.ProtoMember(50)]
+        [global::System.ComponentModel.DefaultValue(EQueryFilesSearchTextTarget.k_EQueryFilesSearchTextTarget_AllText)]
+        public EQueryFilesSearchTextTarget search_text_target
+        {
+            get => __pbn__search_text_target ?? EQueryFilesSearchTextTarget.k_EQueryFilesSearchTextTarget_AllText;
+            set => __pbn__search_text_target = value;
+        }
+        public bool ShouldSerializesearch_text_target() => __pbn__search_text_target != null;
+        public void Resetsearch_text_target() => __pbn__search_text_target = null;
+        private EQueryFilesSearchTextTarget? __pbn__search_text_target;
 
         [global::ProtoBuf.ProtoMember(16)]
         public bool totalonly
@@ -4254,6 +4361,16 @@ namespace SteamKit2.Internal
         public void Resetdesired_revision() => __pbn__desired_revision = null;
         private EPublishedFileRevision? __pbn__desired_revision;
 
+        [global::ProtoBuf.ProtoMember(5)]
+        public bool include_legacy_items
+        {
+            get => __pbn__include_legacy_items.GetValueOrDefault();
+            set => __pbn__include_legacy_items = value;
+        }
+        public bool ShouldSerializeinclude_legacy_items() => __pbn__include_legacy_items != null;
+        public void Resetinclude_legacy_items() => __pbn__include_legacy_items = null;
+        private bool? __pbn__include_legacy_items;
+
     }
 
     [global::ProtoBuf.ProtoContract()]
@@ -4315,6 +4432,16 @@ namespace SteamKit2.Internal
 
             [global::ProtoBuf.ProtoMember(4)]
             public global::System.Collections.Generic.List<PublishedFileAuthorSnapshot> author_snapshots { get; } = new global::System.Collections.Generic.List<PublishedFileAuthorSnapshot>();
+
+            [global::ProtoBuf.ProtoMember(5)]
+            public uint flags
+            {
+                get => __pbn__flags.GetValueOrDefault();
+                set => __pbn__flags = value;
+            }
+            public bool ShouldSerializeflags() => __pbn__flags != null;
+            public void Resetflags() => __pbn__flags = null;
+            private uint? __pbn__flags;
 
         }
 
@@ -4679,6 +4806,27 @@ namespace SteamKit2.Internal
         k_PFFSS_RejectedForSale = 3,
         k_PFFSS_NoLongerForSale = 4,
         k_PFFSS_TentativeApproval = 5,
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum EQueryFilesSpecialFilter
+    {
+        k_EQueryFilesSpecialFilter_None = 0,
+        k_EQueryFilesSpecialFilter_AcceptedForUse = 1,
+        k_EQueryFilesSpecialFilter_FavoritedByFriends = 2,
+        k_EQueryFilesSpecialFilter_CreateByFriends = 3,
+        k_EQueryFilesSpecialFilter_CreatedByFollowed = 4,
+        k_EQueryFilesSpecialFilter_Reported = 5,
+        k_EQueryFilesSpecialFilter_ParentItems = 6,
+        k_EQueryFilesSpecialFilter_ParentCollections = 7,
+    }
+
+    [global::ProtoBuf.ProtoContract()]
+    public enum EQueryFilesSearchTextTarget
+    {
+        k_EQueryFilesSearchTextTarget_AllText = 0,
+        k_EQueryFilesSearchTextTarget_Title = 1,
+        k_EQueryFilesSearchTextTarget_Description = 2,
     }
 
     public class PublishedFile : SteamUnifiedMessages.UnifiedService
